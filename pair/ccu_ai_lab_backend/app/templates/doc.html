@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <ul style="position: fixed; left: 0; top: 50px;list-style: none;padding-left: 0px;">
+    <li>
+      <a href="#auth">
+        <h5>權限相關</h5>
+      </a>
+    </li>
+    <li>
+      <a href="#post">
+        <h5>公告相關</h5>
+      </a>
+    </li>
+    <li>
+      <a href="#setting">
+        <h5>設定相關</h5>
+      </a>
+    </li>
+    <li>
+      <a href="#match">
+        <h5>媒合相關</h5>
+      </a>
+    </li>
+    <li>
+      <a href="#user">
+        <h5>使用者相關</h5>
+      </a>
+    </li>
+    <li>
+      <a href="#research">
+        <h5>研究領域相關</h5>
+      </a>
+    </li>
+  </ul>
+  <div class="container p-5 mt-5">
+    <div class="row">
+      <h3>7/21修改</h3>
+      <ul>
+        <li>補研究相關</li>
+        <li>註冊登入回傳格式修改</li>
+        <li>註冊多帶role_id</li>
+        <li>修改密碼改成put</li>
+        <li>新增公告帶post_type</li>
+      </ul>
+      <h3>7/22修改</h3>
+      <ul>
+        <li>補帶country</li>
+        <li>改修改使用者研究領域格式</li>
+      </ul>
+      <h3>7/27修改</h3>
+      <ul>
+        <li>新增修改研究內容增加start_date, end_date</li>
+        <li>specific_periods get all多帶user_id(可選)</li>
+      </ul>
+    </div>
+    <div class="row" id="auth">
+      <div class="col">
+        <h1>權限相關</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>註冊</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">post</div>
+            </div>
+            <input type="text" class="form-control" value="/auth/register" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="13" readonly>
+              request:
+              {
+                "email":"...",
+                "username":"..."
+                "password":"..." (sha256),
+                "confirm_password": "..." (sha256)
+                "role_id": "..."
+              }
+              response:
+              {
+                "status":"success"
+                "data": {
+                  "access_token": "...",
+                  "user": {
+                    "about_me": "",
+                    "blocked": false,
+                    "company": "CCU",
+                    "created_at": "2020-06-10 06:04:08",
+                    "email": "servermis@ccu.com",
+                    "first_name": "",
+                    "gender": "1",
+                    "id": 1,
+                    "job_title": "MIS",
+                    "last_name": "",
+                    "last_seen": "2020-07-21 15:58:33",
+                    "location": "127.0.0.1",
+                    "others_researches": [
+                      {
+                        "id": 1,
+                        "name": "Demo1"
+                      }
+                    ],
+                    "role": "Administrator",
+                    "self_researches": [
+                      {
+                        "id": 1,
+                        "name": "Demo1"
+                      }
+                    ],
+                    "updated_at": "2020-06-10 06:04:08",
+                    "username": "servermis",
+                    "country":"..."
+                  }
+                }
+              }
+          </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>登入</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">post</div>
+            </div>
+            <input type="text" class="form-control" value="/auth/login" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                request:
+                {
+                  "email":"...",
+                  "password":"..." (sha256),
+                }
+                response:
+                {
+                  "status":"success"
+                  "data": {
+                    "access_token": "...",
+                    "user": {
+                      "about_me": "",
+                      "blocked": false,
+                      "company": "CCU",
+                      "created_at": "2020-06-10 06:04:08",
+                      "email": "servermis@ccu.com",
+                      "first_name": "",
+                      "gender": "1",
+                      "id": 1,
+                      "job_title": "MIS",
+                      "last_name": "",
+                      "last_seen": "2020-07-21 15:58:33",
+                      "location": "127.0.0.1",
+                      "others_researches": [
+                        {
+                          "id": 1,
+                          "name": "Demo1"
+                        }
+                      ],
+                      "role": "Administrator",
+                      "self_researches": [
+                        {
+                          "id": 1,
+                          "name": "Demo1"
+                        }
+                      ],
+                      "updated_at": "2020-06-10 06:04:08",
+                      "username": "servermis",
+                      "country":"..."
+                    }
+                  }
+                }
+            </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>登出(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">delete</div>
+            </div>
+            <input type="text" class="form-control" value="/auth/logout" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                  request:
+                  {}
+                  response:
+                  {
+                    "status":"success"
+                  }
+              </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>更改密碼(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">put, patch</div>
+            </div>
+            <input type="text" class="form-control" value="/auth/change_password" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                  request:
+                  {
+                    "password":"...",
+                    "new_password":"...",
+                    "confirm_password":"..." (sha256),
+                  }
+                  response:
+                  {
+                    "status":"success"
+                  }
+              </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="post">
+      <div class="col">
+        <h1>公告相關</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>新增公告(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">post</div>
+            </div>
+            <input type="text" class="form-control" value="/posts" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                request:
+                {
+                  "title":"...",
+                  "post_type":"...",
+                  "content":"..." (html),
+                }
+                response:
+                {
+                  "status":"success"
+                }
+            </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>取得公告</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">get</div>
+            </div>
+            <input type="text" class="form-control" value="/posts/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                  request:
+                  {}
+                  response:
+                  {
+                    "status":"success"
+                    "data": {
+                        "id": "...",
+                        "title": "...",
+                        "post_type": "...",
+                        "content": "...",
+                        "clicked": "...",
+                        "location": "...",
+                        "updated_at": "...",
+                        "created_at": "..."
+                    }
+                  }
+              </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>取得所有公告</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">get</div>
+            </div>
+            <input type="text" class="form-control" value="/posts" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+              request:
+              {}
+              response:
+              {
+                "status":"success"
+                "data": [{
+                    "id": "...",
+                    "title": "...",
+                    "post_type": "...",
+                    "content": "...",
+                    "clicked": "...",
+                    "location": "...",
+                    "updated_at": "...",
+                    "created_at": "..."
+                },...]
+              }
+                </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>修改公告(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">put, patch</div>
+            </div>
+            <input type="text" class="form-control" value="/posts/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+              request:
+              {
+                "title":"...",
+                "post_type":"..."
+                "content":"..." (html),
+              }
+              response:
+              {
+                "status":"success"
+              }
+          </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>刪除公告(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">delete</div>
+            </div>
+            <input type="text" class="form-control" value="/posts/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                    request:
+                    {}
+                    response:
+                    {
+                      "status":"success"
+                    }
+                </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="setting">
+      <div class="col">
+        <h1>設定相關</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>新增設定(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">post</div>
+            </div>
+            <input type="text" class="form-control" value="/settings" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                  request:
+                  {
+                    "key":"period_of_time",
+                    "value":{
+                      "start":"2020-01-01",
+                      "end":"2020-02-02"
+                    }
+                  }
+                  response:
+                  {
+                    "status":"success"
+                  }
+              </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>取得設定(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">get</div>
+            </div>
+            <input type="text" class="form-control" value="/settings/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                    request:
+                    {}
+                    response:
+                    {
+                      "status":"success"
+                      "data": {
+                          "id": "...",
+                          "key": "...",
+                          "value": "...",
+                          "updated_at": "...",
+                          "created_at": "..."
+                      }
+                    }
+                </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>取得所有設定(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">get</div>
+            </div>
+            <input type="text" class="form-control" value="/settings" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                request:
+                {}
+                response:
+                {
+                  "status":"success"
+                  "data": [{
+                    "id": "...",
+                    "key": "...",
+                    "value": "...",
+                    "updated_at": "...",
+                    "created_at": "..."
+                  },...]
+                }
+                  </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>修改設定(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">put, patch</div>
+            </div>
+            <input type="text" class="form-control" value="/settings/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                request:
+                {
+                  "key": "...",
+                  "value": "..."
+                }
+                response:
+                {
+                  "status":"success"
+                }
+            </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>刪除設定(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">delete</div>
+            </div>
+            <input type="text" class="form-control" value="/settings/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                      request:
+                      {}
+                      response:
+                      {
+                        "status":"success"
+                      }
+                  </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="match">
+      <div class="col">
+        <h1>特定時間媒合相關</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>新增特定時間個人提出項目(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">post</div>
+            </div>
+            <input type="text" class="form-control" value="/specific_periods" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                  request:
+                  {
+                    "researches":["1","2","3",...],
+                    "nation":"...",
+                    "university":"...",
+                    "name_of_pi":"...",
+                    "department":"...",
+                    "project_title":"...",
+                    "link":"..."
+                  }
+                  response:
+                  {
+                    "status":"success"
+                  }
+              </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>取得特定研究項目(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">get</div>
+            </div>
+            <input type="text" class="form-control" value="/specific_periods/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                    request:
+                    {}
+                    response:
+                    {
+                      "status":"success"
+                      "data": {
+                        "id": "...",
+                        "user_name": "...",
+                        "nation": "...",
+                        "university": "...",
+                        "name_of_pi": "...",
+                        "researches":[{
+                          "id":"..",
+                          "name":".."
+                        },...],
+                        "project_title": "...",
+                        "link": "...",
+                        "updated_at": "...",
+                        "created_at": "..."
+                      }
+                    }
+                </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>取得所有特定時間項目(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">get</div>
+            </div>
+            <input type="text" class="form-control" value="/specific_periods" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                request:
+                {
+                  "user_id": "..." (option)
+                }
+                response:
+                {
+                  "status":"success"
+                  "data": [{
+                    "id": "...",
+                    "user_name": "...",
+                    "nation": "...",
+                    "university": "...",
+                    "name_of_pi": "...",
+                    "researches":[{
+                      "id":"..",
+                      "name":".."
+                    },...],
+                    "project_title": "...",
+                    "link": "...",
+                    "updated_at": "...",
+                    "created_at": "..."
+                  },...]
+                }
+                  </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>修改特定時間個人提出項目(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">put, patch</div>
+            </div>
+            <input type="text" class="form-control" value="/specific_periods/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                request:
+                {
+                  "researches":["1","2","3",...],
+                  "nation":"...",
+                  "university":"...",
+                  "name_of_pi":"...",
+                  "department":"...",
+                  "project_title":"...",
+                  "link":"..."
+                }
+                response:
+                {
+                  "status":"success"
+                }
+            </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>刪除特定時間個人提出項目(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">delete</div>
+            </div>
+            <input type="text" class="form-control" value="/specific_periods/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                      request:
+                      {}
+                      response:
+                      {
+                        "status":"success"
+                      }
+                  </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>取得依照[使用者偏好領域]媒合項目(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">get</div>
+            </div>
+            <input type="text" class="form-control" value="/specific_periods/field/matchmaking" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                      request:
+                      {}
+                      response:
+                      {
+                        "status":"success"
+                        "data":[
+                        {
+                          "created_at": "2020-06-10 06:14:01",
+                          "id": 3,
+                          "link": "...",
+                          "name_of_pi": "name_of_pi",
+                          "nation": "nation",
+                          "project_title": "title",
+                          "researches": [
+                            {
+                              "id": 1,
+                              "name": "Demo1"
+                            },
+                            {
+                              "id": 2,
+                              "name": "Demo2"
+                            }
+                          ],
+                          "university": "university",
+                          "updated_at": "2020-06-10 06:14:01",
+                          "user_name": "servermis"
+                        },...
+                        ]
+                      }
+                  </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>取得依照[項目名稱]媒合項目(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">get</div>
+            </div>
+            <input type="text" class="form-control" value="/specific_periods/name/matchmaking" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                      request:
+                      {
+                        "project_title":""
+                      }
+                      response:
+                      {
+                        "status":"success"
+                        "data":[
+                        {
+                          "created_at": "2020-06-10 06:14:01",
+                          "id": 3,
+                          "link": "...",
+                          "name_of_pi": "name_of_pi",
+                          "nation": "nation",
+                          "project_title": "title",
+                          "researches": [
+                            {
+                              "id": 1,
+                              "name": "Demo1"
+                            },
+                            {
+                              "id": 2,
+                              "name": "Demo2"
+                            }
+                          ],
+                          "university": "university",
+                          "updated_at": "2020-06-10 06:14:01",
+                          "user_name": "servermis"
+                        },...
+                        ]
+                      }
+                  </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="user">
+      <div class="col">
+        <h1>使用者相關</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>取得使用者(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">get</div>
+            </div>
+            <input type="text" class="form-control" value="/users/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                      request:
+                      {}
+                      response:
+                      {
+                        "status":"success"
+                        "data": {
+                          "about_me": "",
+                          "blocked": false,
+                          "company": "CCU",
+                          "created_at": "2020-06-10 02:51:05",
+                          "email": "servermis@ccu.com",
+                          "first_name": "",
+                          "gender": "1",
+                          "id": 5,
+                          "job_title": "MIS",
+                          "last_name": "",
+                          "last_seen": "2020-06-10 11:05:58",
+                          "location": "127.0.0.1",
+                          "others_researches": [],
+                          "role": "Administrator",
+                          "self_researches": [],
+                          "updated_at": "2020-06-10 02:51:05",
+                          "username": "servermis"
+                        }
+                      }
+                  </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>取得所有使用者(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">get</div>
+            </div>
+            <input type="text" class="form-control" value="/users" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                  request:
+                  {}
+                  response:
+                  {
+                    "status":"success"
+                    "data": [{
+                      "about_me": "",
+                      "blocked": false,
+                      "company": "CCU",
+                      "created_at": "2020-06-10 02:51:05",
+                      "email": "servermis@ccu.com",
+                      "first_name": "",
+                      "gender": "1",
+                      "id": 5,
+                      "job_title": "MIS",
+                      "last_name": "",
+                      "last_seen": "2020-06-10 11:05:58",
+                      "location": "127.0.0.1",
+                      "others_researches": [],
+                      "role": "Administrator",
+                      "self_researches": [],
+                      "updated_at": "2020-06-10 02:51:05",
+                      "username": "servermis",
+                      "country":"...",
+                    },...]
+                  }
+                    </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>修改個人資訊(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">put, patch</div>
+            </div>
+            <input type="text" class="form-control" value="/users/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                  request:
+                  {
+                    "first_name": "...",
+                    "last_name": "...",
+                    "username": "...",
+                    "country":"...",
+                    "gender": "...",
+                    "company": "...",
+                    "job_title": "...",
+                    "about_me": "...",
+                    "user_researches": [{
+                      "research_id": 1,
+                      "research_type": 0 or 1,
+                    },{
+                      "research_id": 1,
+                      "research_type": 0 or 1,
+                    }]
+                  }
+                  response:
+                  {
+                    "status":"success"
+                  }
+              </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>刪除使用者(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">delete</div>
+            </div>
+            <input type="text" class="form-control" value="/users/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                        request:
+                        {}
+                        response:
+                        {
+                          "status":"success"
+                        }
+                    </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="research">
+      <div class="col">
+        <h1>研究領域相關</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>新增領域(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">post</div>
+            </div>
+            <input type="text" class="form-control" value="/researches" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                request:
+                {
+                  "name":"...",
+                }
+                response:
+                {
+                  "status":"success"
+                }
+            </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>修改領域(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">put</div>
+            </div>
+            <input type="text" class="form-control" value="/researches/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                request:
+                {
+                  "name":"...",
+                }
+                response:
+                {
+                  "status":"success"
+                }
+            </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>刪除領域(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">delete</div>
+            </div>
+            <input type="text" class="form-control" value="/researches/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                request:
+                {
+                }
+                response:
+                {
+                  "status":"success"
+                }
+            </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>取得所有領域(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">get</div>
+            </div>
+            <input type="text" class="form-control" value="/researches" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                request:
+                {
+                }
+                response:
+                {
+                  "data": [
+                    {
+                      "id": 1,
+                      "name": "Demo1"
+                    },
+                    {
+                      "id": 2,
+                      "name": "Demo2"
+                    },
+                    {
+                      "id": 3,
+                      "name": "Demo3"
+                    }
+                  ],
+                  "status": "success"
+                }
+            </textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>
+            <h4>取得單一領域(需登入)</h4>
+          </label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">get</div>
+            </div>
+            <input type="text" class="form-control" value="/researches/:id" readonly>
+          </div>
+          <textarea class="form-control" cols="30" rows="10" readonly>
+                request:
+                {
+                }
+                response:
+                {
+                  "data": {
+                    "id": 1,
+                    "name": "Demo1"
+                  },
+                  "status": "success"
+                }
+            </textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

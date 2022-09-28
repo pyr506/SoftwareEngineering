@@ -1,0 +1,1137 @@
+{
+	"intents": [
+		{
+			"tag": "Greeting",
+			"patterns": [
+				"Hi",
+				"Hello",
+				"How are you",
+				"Greetings!",
+				"Is anyone here?"
+			],
+			"responses":[
+				"Hello",
+				"Hi",
+				"Hi, How may I help you?"
+			],
+			"context_set": "",
+			"type": 0
+
+		},
+		{
+			"tag": "You're welcome",
+			"patterns":[
+				"Thanks",
+				"Thank you",
+				"That's good",
+				"Great",
+				"Good job",
+				"helps a lot",
+				"Thanks for your assistance"
+			],
+			"responses":[
+				"Yor're welcome",
+				"Thank you, too",
+				"My pleasure",
+				"Glad to help you"
+			],
+			"context_set":"",
+			"type": 0
+		},
+		{
+			"tag": "Find_Project",
+			"patterns":[
+				"I want to find a project",
+				"Find projects",
+				"I am looking for projects",
+				"search projects",
+				"Can you help me to find projects?"
+			],
+			"responses":[
+				"Which types of projects do you want to find?",
+				"Please enter your search criteria"
+			],
+			"type": 0
+
+		},
+		{
+			"tag": "Project_Type",
+			"patterns":[
+				"What kinds of projects do you have?",
+				"What kinfs of projects I can find?",
+				"Types of projects"
+			],
+			"responses":[""],
+			"type": 0
+		},
+		{
+			"tag": "Result",
+			"patterns":["g"],
+			"responses":[
+				"Here are your projects matching result"
+			],
+			"type": 0
+		},
+		{
+			"tag": "NO",
+			"patterns":[
+				"No",
+				"n",
+				"No, I am not",
+				"I don't want this",
+				"not",
+				"nah",
+				"It's not I want"
+			],
+			"responses":[
+				"Please enter your demands again. Thank you:)",
+				"Could you please explain your requirements again?"
+			],
+			"context_set": "",
+			"type": 0
+		},
+		{
+			"tag": "Duration",
+			"patterns":[
+				"time",
+				"duration",
+				"deadline",
+				"months",
+				"days",
+				"year",
+				"project duration",
+				"project dedline"
+			],
+			"responses":[
+				"Please enter the duration of projects you want in the format of 't month~month'\nfor example: If you want a project for 1 to 2 months,\nenter 't 1~2'\nIf you don't want to set projects duration, please type 'n'"
+			],
+			"context_set": "Duration",
+			"type":0
+		},
+		{
+			"tag": "Duration_Set",
+			"patterns":["t"],
+			"responses":[
+				"The duration of projects have been set.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "Duration",
+			"type": 0
+		},
+		{
+			"tag": "Country",
+			"patterns":[
+				"I want to find a project in",
+				"country",
+				"city",
+				"area",
+				"nation",
+				"project in Taiwan",
+				"project in India",
+				"Taiwan project",
+				"India project"
+			],
+			"responses":[
+				"If you want to add country to your searching conditions, please enter 'c country name', such as 'c Taiwan', 'c India'\nIf not please enter 'n'."
+			],
+			"context_set": "Country",
+			"type": 0
+		},
+		{
+			"tag": "Country_Set",
+			"patterns":["c"],
+			"responses":[
+				"Country has been set.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "Country",
+			"type": 0
+		},
+		{
+			"tag": "Taiwan",
+			"patterns": ["c Taiwan"],
+			"responses":[
+				"We set 'Taiwan' to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "Country",
+			"type": 0
+		},
+		{
+			"tag": "India",
+			"patterns": ["c India"],
+			"responses": [
+				"We set 'India' to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "Country",
+			"type": 0
+		},
+		{
+			"tag": "Department",
+			"patterns":[
+				"Department",
+				"major in",
+				"professional field",
+				"professional"
+			],
+			"responses":[
+				"If you want to add departments to your searching conditions, please enter 'd departments name', such as 'd Computer Science', 'd Electrical Engineering'\nIf not please enter 'n'"
+			],
+			"context_set": "Department",
+			"type":0
+		},
+		{
+			"tag": "Department_Set",
+			"patterns":["d"],
+			"responses":[
+				"Departments have been set\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get your results."
+			],
+			"context_filter": "Department",
+			"type": 0
+		},
+		{
+			"tag":"CS",
+			"patterns": [
+				"d CS",
+				"d Computer science",
+				"Computer science",
+				"CS",
+				"d Department of Computer Science",
+				"I want a project of computer science"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the department of projects you want is 'Computer Science'. If not, please clearly explain your needs again. Thanks:)"
+			],
+			"context_set": "WantCS",
+			"type": 3
+		},
+		{
+			"tag": "CS_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Computer Science' to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantCS",
+			"type": 4
+		},
+		{
+			"tag": "Electrical_Engineering",
+			"patterns":[
+				"Electrical Machinery",
+				"Electrical Engineering",
+				"Department of Electrical Engineering"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the department of projects you want is 'Electrical Engineering'. If not, please clearly explain your needs again. Thanks:)"
+			],
+			"context_set": "WantElectrical",
+			"type":3
+		},
+		{
+			"tag": "Electrical_Engineering_Set",
+			"patterns":[
+				"d Electrical Engineering",
+				"d Department of electrical engineering",
+				"EE",
+				"Electrical Engineering"
+			],
+			"responses":[
+				"We set 'Electrical Engineering to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter":"WantElectrical",
+			"type": 4
+		},
+		{
+			"tag": "Information_Engineering",
+			"patterns":[
+				"d Information engineering",
+				"Department of Information engineering",
+				"Information engineering"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the department of projects you want is 'Information Engineering'. If not, please clearly explain your needs again. Thanks:)"
+			],
+			"context_set": "WantIE",
+			"type": 3
+		},
+		{
+			"tag": "Information_Engineering_Set",
+			"patterns": ["y"],
+			"responses":[
+				"We set 'Information Engineering' to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantIE",
+			"type": 4
+		},
+		{
+			"tag": "Data_Science",
+			"patterns":[
+				"d Data Science",
+				"d Data Analytics",
+				"Department of Data Science",
+				"Data Science",
+				"Data Analytics"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the department of projects you want is 'Data Science'. If not, please clearly explain your needs again. Thanks:)"
+			],
+			"context_set": "WantDS",
+			"type": 3
+		},
+		{
+			"tag": "Data_Science_Set",
+			"patterns": ["y"],
+			"responses":[
+				"We set 'Data Science' to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get ypur results."
+			],
+			"context_filter": "WantDS",
+			"type": 4
+		},
+		{
+			"tag": "Telecommunications_Engineering",
+			"patterns":[
+				"d Telecommunications engineering",
+				"d communications engineering",
+				"d electronic and telecommuication engineering",
+				"Department of Telecommunications engineering",
+				"Telecommunications engineering",
+				"communications engineering"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the department of projects you want is 'Telecommunications Engineering'. If not, please clearly explain your needs again. Thanks:)" 
+			],
+			"context_set": "WantTE",
+			"type": 3
+		},
+		{
+			"tag": "Telecommunications_Engineering_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Telecommunications Engineering' to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantTE",
+			"type": 4
+		},
+		{
+			"tag": "Chemical_Engineering",
+			"patterns": [
+				"d Chemical Engineering",
+				"Department of Chemical Engineering",
+				"Chemical Engineering"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the department of projects you want is 'Chemical Engineering'. If not, please clearly explain your needs again. Thanks:)"
+			],
+			"context_set": "WantCE",
+			"type": 3
+		},
+		{
+			"tag": "Chemical_Engineering_Set",
+			"patterns": ["y"],
+			"responses":[
+				"We set 'Chemical Engineering' to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantCE",
+			"type": 4
+		},
+		{
+			"tag": "Energy_Engineering",
+			"patterns":[
+				"d Energy Engineering",
+				"Department of Energy Engineering",
+				"Energy Engineering"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the department of projects you want is 'Energy Engineering'. If not, please clearly explain your needs again. Thanks:)"
+			],
+			"context_set": "WantEnergy",
+			"type": 3
+		},
+		{
+			"tag": "Energy_Engineering_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Energy Engineering' to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantEnergy",
+			"type": 4
+		},
+		{
+			"tag": "Industrial_Engineering",
+			"patterns": [
+				"d Industrial Engineering",
+				"Department of Industrial Engineering",
+				"IE",
+				"Industrial Engineering"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the department of projects you want is 'Industrial Engineering'. If not, please clearly explain your needs again. Thanks:)"
+			],
+			"context_set": "WantIndustrial",
+			"type": 3
+		},
+		{
+			"tag": "Industrial_Engineering_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Industrial Engineering' to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantIndustrial",
+			"type": 4
+		},
+		{
+			"tag": "Environmental_Engineering",
+			"patterns": [
+				"d Environmental Engineering",
+				"Department of Environmental Engineering",
+				"environment engineering"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the department of projects you want is 'Environmental Engineering'. If not, please clearly explain your needs again. Thanks:)"
+			],
+			"context_set": "WantEnvironment",
+			"type": 3
+		},
+		{
+			"tag": "Environmental_Engineering_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Environmental Engineering' to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantEnvironment",
+			"type": 4
+		},
+		{
+			"tag": "Member",
+			"patterns":[
+				"Number limit",
+				"Number of team members",
+				"Number of project members",
+				"group members",
+				"project team size"
+			],
+			"responses":[
+				"Please enter your expected projects team size in the format of 'm number~number'.\nFor example: If you want a team of 3 to 10 people,\nenter 'm 3~10'.\n If you do not want to set team size, please enter 'n' "
+			],
+			"context_set": "Member",
+			"type": 0
+		},
+		{
+			"tag": "Member_Set",
+			"patterns":["m"],
+			"responses":[
+				"We set 'Team size' to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter":"Member",
+			"type": 0
+		},
+		{
+			"tag": "AI",
+			"patterns":[
+				"AI",
+				"AI project",
+				"Artificial Intelligence",
+				"I want a project of AI",
+				"Type of AI",
+				"related to AI",
+				"machine learning",
+				"research area"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of project you want is 'Artificial Intelligence'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set": "WantAI",
+			"type": 1
+		},
+		{
+			"tag": "AI_Set",
+			"patterns": ["y"],
+			"responses":[
+				"We set 'Artificial Intelligence' to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantAI",
+			"type": 2
+		},
+		{
+			"tag": "Blockchain",
+			"patterns":[
+				"blockchain",
+				"block chain",
+				"blockchain Technology",
+				"project of blockchain"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of project you want is 'Block chain'\n if not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set": "WantBlockchain",
+			"type": 1
+		},
+		{
+			"tag": "Blockchain_Set",
+			"patterns": ["y"],
+			"responses":[
+				"We set 'Block chain' to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantBlockchain",
+			"type": 2
+		},
+		{
+			"tag": "Smartgrid",
+			"patterns":[
+				"Smart grid",
+				"smart electric grid",
+				"intelligent grid",
+				"project of smart grid"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'Smart Grid'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set": "WantSmartgrid",
+			"type": 1
+		},
+		{
+			"tag": "Smartgrid_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Smart grid' to your searching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantSmartgrid",
+			"type": 2
+		},
+		{
+			"tag": "Iot",
+			"patterns":[
+				"IOT",
+				"Internet of Things",
+				"IoT",
+				"project of iot"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'IoT'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set": "WantIot",
+			"type": 1
+		},
+		{
+			"tag": "Iot_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'IoT' to your seatching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantIot",
+			"type":2
+		},
+		{
+			"tag": "C++",
+			"patterns":[
+				"C++",
+				"project of C++"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'C++'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set": "WantC++",
+			"type": 1
+		},
+		{
+			"tag": "C++_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'C++' to your seatching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantC++",
+			"type": 2
+		},
+		{
+			"tag": "pytorch",
+			"patterns":[
+				"pytorch",
+				"project of pytorch"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'Pytorch'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set": "Wantpytorch",
+			"type": 1
+		},
+		{
+			"tag": "pytorch_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'PyTorch' to your seatching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "Wantpytorch",
+			"type": 2
+		},
+		{
+			"tag": "PEMFC",
+			"patterns":[
+				"PEMFC",
+				"Proton Exchange Membrane Fuel Cell",
+				"Polymer Electrolyte Membrane Fuel Cells",
+				"project of PEMFC"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'PEMFC'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantPEMFC",
+			"type": 1
+		},
+		{
+			"tag": "PEMFC_Set",
+			"patterns": ["y"],
+			"responses":[
+				"We set 'PEMFC' to your seatching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantPEMFC",
+			"type": 2
+		},
+		{
+			"tag": "Bipolar_Plate",
+			"patterns":[
+				"Bipolar Plate",
+				"project of biopolar plate"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'Bipolar Plate'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set": "WantBP",
+			"type": 1
+		},
+		{
+			"tag": "Bipolar_Plate_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Bipolar Plate' to your seatching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantBP",
+			"type": 2
+		},
+		{
+			"tag": "Hydrogen_energy_technology",
+			"patterns":[
+				"Hydrogen energy technology",
+				"project of Hydrogen energy technology",
+				"hydrogen fuel",
+				"Hydrogen energy"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'Hydrogen energy technology'\nIf not, please clearly state your needs again. Thanks:)"			
+			],
+			"context_set": "WantHydrogen",
+			"type": 1
+		},
+		{
+			"tag": "Hydrogen_energy_technology_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Hydrogen energy technology' to your seatching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantHydrogen",
+			"type": 2
+		},
+		{
+			"tag": "Cyber_Physical_System",
+			"patterns":[
+				"Cyber-Physical System",
+				"Project of Cyber-Physical System",
+				"CPS"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'Cyber-Physical System'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set": "WantCyber_Physical",
+			"type": 1
+		},
+		{
+			"tag": "Cyber_Physical_System_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Cyber-Physical System' to your seatching conditions.\nYou can continue to add other conditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantCyber_Physical",
+			"type": 2
+		},
+		{
+			"tag": "Demo1",
+			"patterns":[
+				"Demo1",
+				"project of Demo1",
+				"project related to Demo1",
+				"Demo1 project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'Demo1'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantDemo1",
+			"type": 1
+		},
+		{
+			"tag": "Demo1_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Demo1' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantDemo1",
+			"type": 2
+		},
+		{
+			"tag": "Demo2",
+			"patterns":[
+				"Demo2",
+				"project of Demo2",
+				"project related to Demo2",
+				"Demo2 project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'Demo2'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantDemo2",
+			"type": 1
+		},
+		{
+			"tag": "Demo2_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Demo2' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantDemo2",
+			"type": 2
+		},
+		{
+			"tag": "DB",
+			"patterns":[
+				"DB",
+				"project of DB",
+				"project related to DB",
+				"DB project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'DB'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantDB",
+			"type": 1
+		},
+		{
+			"tag": "DB_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'DB' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantDB",
+			"type": 2
+		},
+		{
+			"tag": "DevOps",
+			"patterns":[
+				"DevOps",
+				"project of DevOps",
+				"project related to DevOps",
+				"DevOps project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'DevOps'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantDevOps",
+			"type": 1
+		},
+		{
+			"tag": "DevOps_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'DevOps' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantDevOps",
+			"type": 2
+		},
+		{
+			"tag": "MLOps",
+			"patterns":[
+				"MLOps",
+				"project of MLOps",
+				"project related to MLOps",
+				"MLOps project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'MLOps'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantMLOps",
+			"type": 1
+		},
+		{
+			"tag": "MLOps_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'MLOps' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantMLOps",
+			"type": 2
+		},
+		{
+			"tag": "ReinforcementLearning",
+			"patterns":[
+				"ReinforcementLearning",
+				"project of ReinforcementLearning",
+				"project related to ReinforcementLearning",
+				"ReinforcementLearning project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'ReinforcementLearning'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantReinforcementLearning",
+			"type": 1
+		},
+		{
+			"tag": "ReinforcementLearning_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'ReinforcementLearning' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantReinforcementLearning",
+			"type": 2
+		},
+		{
+			"tag": "Security",
+			"patterns":[
+				"Security",
+				"project of Security",
+				"project related to Security",
+				"Security project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'Security'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantSecurity",
+			"type": 1
+		},
+		{
+			"tag": "Security_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Security' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantSecurity",
+			"type": 2
+		},
+		{
+			"tag": "smartgate-way",
+			"patterns":[
+				"smartgate-way",
+				"project of smartgate-way",
+				"project related to smartgate-way",
+				"smartgate-way project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'smartgate-way'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"Wantsmartgate-way",
+			"type": 1
+		},
+		{
+			"tag": "smartgate-way_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'smartgate-way' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "Wantsmartgate-way",
+			"type": 2
+		},
+		{
+			"tag": "DDPG",
+			"patterns":[
+				"DDPG",
+				"project of DDPG",
+				"project related to DDPG",
+				"DDPG project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'DDPG'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantDDPG",
+			"type": 1
+		},
+		{
+			"tag": "DDPG_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'DDPG' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantDDPG",
+			"type": 2
+		},
+		{
+			"tag": "A3C",
+			"patterns":[
+				"A3C",
+				"project of A3C",
+				"project related to A3C",
+				"A3C project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'A3C'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantA3C",
+			"type": 1
+		},
+		{
+			"tag": "A3C_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'A3C' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantA3C",
+			"type": 2
+		},
+		{
+			"tag": "BigData",
+			"patterns":[
+				"BigData",
+				"project of BigData",
+				"project related to BigData",
+				"BigData project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'BigData'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantBigData",
+			"type": 1
+		},
+		{
+			"tag": "BigData_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'BigData' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantBigData",
+			"type": 2
+		},
+		{
+			"tag": "Cyber-PhysicalSystem",
+			"patterns":[
+				"Cyber-PhysicalSystem",
+				"project of Cyber-PhysicalSystem",
+				"project related to Cyber-PhysicalSystem",
+				"Cyber-PhysicalSystem project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'Cyber-PhysicalSystem'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantCyber-PhysicalSystem",
+			"type": 1
+		},
+		{
+			"tag": "Cyber-PhysicalSystem_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Cyber-PhysicalSystem' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantCyber-PhysicalSystem",
+			"type": 2
+		},
+		{
+			"tag": "Multi-AgentSystem",
+			"patterns":[
+				"Multi-AgentSystem",
+				"project of Multi-AgentSystem",
+				"project related to Multi-AgentSystem",
+				"Multi-AgentSystem project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'Multi-AgentSystem'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantMulti-AgentSystem",
+			"type": 1
+		},
+		{
+			"tag": "Multi-AgentSystem_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Multi-AgentSystem' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantMulti-AgentSystem",
+			"type": 2
+		},
+		{
+			"tag": "Micro-grid",
+			"patterns":[
+				"Micro-grid",
+				"project of Micro-grid",
+				"project related to Micro-grid",
+				"Micro-grid project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'Micro-grid'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantMicro-grid",
+			"type": 1
+		},
+		{
+			"tag": "Micro-grid_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Micro-grid' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantMicro-grid",
+			"type": 2
+		},
+		{
+			"tag": "WholesaleElectricityMarket",
+			"patterns":[
+				"WholesaleElectricityMarket",
+				"project of WholesaleElectricityMarket",
+				"project related to WholesaleElectricityMarket",
+				"WholesaleElectricityMarket project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'WholesaleElectricityMarket'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantWholesaleElectricityMarket",
+			"type": 1
+		},
+		{
+			"tag": "WholesaleElectricityMarket_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'WholesaleElectricityMarket' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantWholesaleElectricityMarket",
+			"type": 2
+		},
+		{
+			"tag": "DynamicPricing",
+			"patterns":[
+				"DynamicPricing",
+				"project of DynamicPricing",
+				"project related to DynamicPricing",
+				"DynamicPricing project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'DynamicPricing'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantDynamicPricing",
+			"type": 1
+		},
+		{
+			"tag": "DynamicPricing_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'DynamicPricing' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantDynamicPricing",
+			"type": 2
+		},
+		{
+			"tag": "Hydrogenenergytechnology",
+			"patterns":[
+				"Hydrogenenergytechnology",
+				"project of Hydrogenenergytechnology",
+				"project related to Hydrogenenergytechnology",
+				"Hydrogenenergytechnology project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'Hydrogenenergytechnology'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantHydrogenenergytechnology",
+			"type": 1
+		},
+		{
+			"tag": "Hydrogenenergytechnology_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Hydrogenenergytechnology' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantHydrogenenergytechnology",
+			"type": 2
+		},
+		{
+			"tag": "HT-PEMFC",
+			"patterns":[
+				"HT-PEMFC",
+				"project of HT-PEMFC",
+				"project related to HT-PEMFC",
+				"HT-PEMFC project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'HT-PEMFC'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantHT-PEMFC",
+			"type": 1
+		},
+		{
+			"tag": "HT-PEMFC_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'HT-PEMFC' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantHT-PEMFC",
+			"type": 2
+		},
+		{
+			"tag": "Hydrogenelectrolysis",
+			"patterns":[
+				"Hydrogenelectrolysis",
+				"project of Hydrogenelectrolysis",
+				"project related to Hydrogenelectrolysis",
+				"Hydrogenelectrolysis project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'Hydrogenelectrolysis'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantHydrogenelectrolysis",
+			"type": 1
+		},
+		{
+			"tag": "Hydrogenelectrolysis_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Hydrogenelectrolysis' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantHydrogenelectrolysis",
+			"type": 2
+		},
+		{
+			"tag": "Microturbineenginesystem",
+			"patterns":[
+				"Microturbineenginesystem",
+				"project of Microturbineenginesystem",
+				"project related to Microturbineenginesystem",
+				"Microturbineenginesystem project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'Microturbineenginesystem'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantMicroturbineenginesystem",
+			"type": 1
+		},
+		{
+			"tag": "Microturbineenginesystem_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'Microturbineenginesystem' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantMicroturbineenginesystem",
+			"type": 2
+		},
+		{
+			"tag": "BipolarPlate",
+			"patterns":[
+				"BipolarPlate",
+				"project of BipolarPlate",
+				"project related to BipolarPlate",
+				"BipolarPlate project"
+			],
+			"responses":[
+				"Please type 'y' to confirm that the type of projects you want is 'BipolarPlate'\nIf not, please clearly state your needs again. Thanks:)"
+			],
+			"context_set":"WantBipolarPlate",
+			"type": 1
+		},
+		{
+			"tag": "BipolarPlate_Set",
+			"patterns":["y"],
+			"responses":[
+				"We set 'BipolarPlate' to your seatching conditions.\nYou can continue to add otherconditions you want.\nIf that's all, please enter 'g' to get the results."
+			],
+			"context_filter": "WantBipolarPlate",
+			"type": 2
+		}
+
+	]
+}

@@ -1,0 +1,27 @@
+網頁權限控管
+管理者權限
+-webinfo
+  -edit
+-使用者管理
+   -list
+   -edit
+-news管理
+  -new
+  -edit
+-events管理
+  -new
+  -edit
+-project管理
+  -new
+  -edit
+-提出計畫管理
+  -new
+  -edit
+
+使用者權限
+-project管理
+  -new
+  -edit (只能admin or 自己)
+  -決定COPI人
+-提出計畫管理
+  -apply (非自己的且沒apply過)

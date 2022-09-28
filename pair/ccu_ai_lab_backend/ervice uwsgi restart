@@ -1,0 +1,10 @@
+[0;1;31m●[0m ccu_ai_lab_backend.service - uWSGI instance to serve ccu_ai_lab_backend
+   Loaded: loaded (/etc/systemd/system/ccu_ai_lab_backend.service; enabled; vendor preset: enabled)
+   Active: [0;1;31mfailed[0m (Result: exit-code) since Mon 2020-07-13 20:53:54 CST; 3s ago
+  Process: 25629 ExecStart=/home/esl/www/ccu_ai_lab_backend/uwsgi --ini /home/esl/www/ccu_ai_lab_backend/ccu_ai_lab_backend.ini [0;1;31m(code=exited, status=203/EXEC)[0m
+ Main PID: 25629 (code=exited, status=203/EXEC)
+
+Jul 13 20:53:54 embedded.cs.ccu.edu.tw systemd[1]: Started uWSGI instance to serve ccu_ai_lab_backend.
+Jul 13 20:53:54 embedded.cs.ccu.edu.tw systemd[1]: [0;1;39mccu_ai_lab_backend.service: Main process exited, code=exited, status=203/EXEC[0m
+Jul 13 20:53:54 embedded.cs.ccu.edu.tw systemd[1]: [0;1;39mccu_ai_lab_backend.service: Unit entered failed state.[0m
+Jul 13 20:53:54 embedded.cs.ccu.edu.tw systemd[1]: [0;1;39mccu_ai_lab_backend.service: Failed with result 'exit-code'.[0m
